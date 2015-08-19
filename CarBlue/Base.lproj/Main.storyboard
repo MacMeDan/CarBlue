@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fWm-9L-xV5">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -24,37 +25,54 @@
                                     <constraint firstAttribute="width" constant="348" id="gui-RZ-aTh"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyB-bV-adZ">
-                                <rect key="frame" x="230" y="186" width="141" height="30"/>
-                                <state key="normal" title="Play music your way">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="playBTN:" destination="fWm-9L-xV5" eventType="touchUpInside" id="uoA-vh-BQT"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Xl-8T-JfN">
-                                <rect key="frame" x="285" y="406" width="33" height="30"/>
-                                <state key="normal" title="Stop">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="stopTheNoise:" destination="fWm-9L-xV5" eventType="touchUpInside" id="QOc-YZ-R58"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Car Blue" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WJx-XF-m9c">
+                                <rect key="frame" x="219" y="80" width="162" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="162" id="9Ie-Sh-oUt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Make sure your music app is open. 2. Your device is paired to your car. 3. That I am open. 4. Let us do the rest. " lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MY2-kI-am7">
+                                <rect key="frame" x="36" y="121" width="528" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="2Xl-8T-JfN" secondAttribute="centerY" constant="-121" id="HyN-sE-Svy"/>
+                            <constraint firstItem="MY2-kI-am7" firstAttribute="trailing" secondItem="FA3-MV-MKQ" secondAttribute="trailingMargin" constant="20" id="1wU-1C-0Ry"/>
+                            <constraint firstItem="WJx-XF-m9c" firstAttribute="top" secondItem="qQq-yO-1MK" secondAttribute="bottom" constant="60" id="6mW-JB-etS"/>
+                            <constraint firstAttribute="centerX" secondItem="MY2-kI-am7" secondAttribute="centerX" id="9aW-gm-fC8"/>
+                            <constraint firstAttribute="centerX" secondItem="WJx-XF-m9c" secondAttribute="centerX" id="ARJ-WQ-AGP"/>
+                            <constraint firstItem="MY2-kI-am7" firstAttribute="leading" secondItem="FA3-MV-MKQ" secondAttribute="leadingMargin" constant="20" id="CvO-zc-XOJ"/>
+                            <constraint firstAttribute="centerX" secondItem="MY2-kI-am7" secondAttribute="centerX" id="PGQ-tv-1pG"/>
                             <constraint firstAttribute="centerY" secondItem="ewK-ot-0bl" secondAttribute="centerY" id="R7f-3K-wUL"/>
-                            <constraint firstAttribute="centerX" secondItem="fyB-bV-adZ" secondAttribute="centerX" id="XTh-SV-5kj"/>
+                            <constraint firstItem="ewK-ot-0bl" firstAttribute="top" relation="greaterThanOrEqual" secondItem="MY2-kI-am7" secondAttribute="bottom" constant="20" id="S9v-Pr-LLB"/>
+                            <constraint firstItem="MY2-kI-am7" firstAttribute="top" secondItem="WJx-XF-m9c" secondAttribute="bottom" constant="20" id="XtE-ys-QUt"/>
                             <constraint firstAttribute="centerX" secondItem="ewK-ot-0bl" secondAttribute="centerX" id="Z7P-fD-wtW"/>
-                            <constraint firstAttribute="centerX" secondItem="2Xl-8T-JfN" secondAttribute="centerX" id="eE3-GV-auo"/>
-                            <constraint firstAttribute="centerY" secondItem="fyB-bV-adZ" secondAttribute="centerY" constant="99" id="ehx-u0-WIS"/>
+                            <constraint firstItem="MY2-kI-am7" firstAttribute="top" secondItem="WJx-XF-m9c" secondAttribute="bottom" constant="-34" id="b60-Fj-xov"/>
+                            <constraint firstItem="MY2-kI-am7" firstAttribute="top" secondItem="qQq-yO-1MK" secondAttribute="bottom" constant="21" id="cD1-fY-52R"/>
+                            <constraint firstItem="MY2-kI-am7" firstAttribute="top" secondItem="WJx-XF-m9c" secondAttribute="bottom" constant="10" id="ecv-tv-aOT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MY2-kI-am7" secondAttribute="trailing" constant="20" id="lMB-Hb-Eoh"/>
+                            <constraint firstItem="MY2-kI-am7" firstAttribute="leading" secondItem="FA3-MV-MKQ" secondAttribute="leadingMargin" constant="20" id="x39-gv-vYq"/>
+                            <constraint firstItem="ewK-ot-0bl" firstAttribute="top" relation="lessThanOrEqual" secondItem="MY2-kI-am7" secondAttribute="bottom" constant="103" id="zgW-8P-Ba6"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="1wU-1C-0Ry"/>
+                                <exclude reference="9aW-gm-fC8"/>
+                                <exclude reference="CvO-zc-XOJ"/>
+                                <exclude reference="b60-Fj-xov"/>
+                                <exclude reference="cD1-fY-52R"/>
+                                <exclude reference="ecv-tv-aOT"/>
+                                <exclude reference="zgW-8P-Ba6"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
-                        <outlet property="playBTN" destination="fyB-bV-adZ" id="bWd-6Z-fkm"/>
                         <outlet property="volView" destination="ewK-ot-0bl" id="300-LY-mJh"/>
                     </connections>
                 </viewController>

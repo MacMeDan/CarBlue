@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B7EB84A81B84F43A00381D0A /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7EB84A71B84F43A00381D0A /* iAd.framework */; };
 		B7F21BE91B840B8700534CC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F21BE81B840B8700534CC3 /* AppDelegate.swift */; };
 		B7F21BEB1B840B8700534CC3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F21BEA1B840B8700534CC3 /* ViewController.swift */; };
 		B7F21BEE1B840B8700534CC3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7F21BEC1B840B8700534CC3 /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B7EB84A71B84F43A00381D0A /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		B7F21BE31B840B8700534CC3 /* CarBlue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarBlue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7F21BE71B840B8700534CC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7F21BE81B840B8700534CC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7EB84A81B84F43A00381D0A /* iAd.framework in Frameworks */,
 				B7F21C0B1B840C0400534CC3 /* AVFoundation.framework in Frameworks */,
 				B7F21C091B840BED00534CC3 /* CoreAudio.framework in Frameworks */,
 			);
@@ -65,8 +68,6 @@
 		B7F21BDA1B840B8700534CC3 = {
 			isa = PBXGroup;
 			children = (
-				B7F21C0A1B840C0400534CC3 /* AVFoundation.framework */,
-				B7F21C081B840BED00534CC3 /* CoreAudio.framework */,
 				B7F21BE51B840B8700534CC3 /* CarBlue */,
 				B7F21BFB1B840B8800534CC3 /* CarBlueTests */,
 				B7F21BE41B840B8700534CC3 /* Products */,
@@ -98,6 +99,9 @@
 		B7F21BE61B840B8700534CC3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B7EB84A71B84F43A00381D0A /* iAd.framework */,
+				B7F21C081B840BED00534CC3 /* CoreAudio.framework */,
+				B7F21C0A1B840C0400534CC3 /* AVFoundation.framework */,
 				B7F21BE71B840B8700534CC3 /* Info.plist */,
 			);
 			name = "Supporting Files";
