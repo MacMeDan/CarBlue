@@ -19,11 +19,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let path = NSBundle.mainBundle().pathForResource("Edm Trumpets", ofType: "mp3")
-        var music = NSURL(fileURLWithPath: path!)
+//        let path = NSBundle.mainBundle().pathForResource("Edm Trumpets", ofType: "mp3")
+//        var music = NSURL(fileURLWithPath: path!)
         configureAudioSession()
-        audioPlayer = AVAudioPlayer(contentsOfURL: music, error: nil)
-        audioPlayer.prepareToPlay()
+//        audioPlayer = AVAudioPlayer(contentsOfURL: music, error: nil)
+//        audioPlayer.prepareToPlay()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -56,12 +56,12 @@ class ViewController: UIViewController {
         
     }
     @IBAction func stopTheNoise(sender: AnyObject) {
-        audioPlayer.stop()
-        audioPlayer.prepareToPlay()
+//        audioPlayer.stop()
+//        audioPlayer.prepareToPlay()
     }
     
     @IBAction func playBTN(sender: AnyObject) {
-        audioPlayer.play()
+//        audioPlayer.play()
         println("play")
     }
     
