@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fWm-9L-xV5">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -31,7 +32,7 @@
                                 </variation>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Car Blue" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WJx-XF-m9c">
-                                <rect key="frame" x="219" y="80" width="162" height="20.5"/>
+                                <rect key="frame" x="219" y="80" width="162" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="162" id="9Ie-Sh-oUt"/>
                                 </constraints>
@@ -40,7 +41,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Make sure your music app is open. 2. Your device is paired to your car. 3. That I am open. 4. Let us do the rest. " lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MY2-kI-am7">
-                                <rect key="frame" x="36" y="120.5" width="528" height="41"/>
+                                <rect key="frame" x="36" y="121" width="528" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -50,9 +51,16 @@
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="touchyTouchy:" destination="fWm-9L-xV5" eventType="touchUpInside" id="XBh-T1-ErB"/>
+                                </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YDT-DU-f1Z" customClass="AsdfView" customModule="CarBlue" customModuleProvider="target">
-                                <rect key="frame" x="155" y="164" width="300" height="300"/>
+                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="YDT-DU-f1Z" customClass="AsdfView" customModule="CarBlue" customModuleProvider="target">
+                                <rect key="frame" x="231" y="192" width="128" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="1Xk-nA-rrA"/>
+                                    <constraint firstAttribute="width" secondItem="YDT-DU-f1Z" secondAttribute="height" multiplier="1:1" id="gOW-Z5-EKh"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -68,12 +76,14 @@
                             <constraint firstAttribute="centerX" secondItem="MY2-kI-am7" secondAttribute="centerX" id="PGQ-tv-1pG"/>
                             <constraint firstAttribute="centerY" secondItem="ewK-ot-0bl" secondAttribute="centerY" id="R7f-3K-wUL"/>
                             <constraint firstItem="ewK-ot-0bl" firstAttribute="top" relation="greaterThanOrEqual" secondItem="MY2-kI-am7" secondAttribute="bottom" constant="20" id="S9v-Pr-LLB"/>
+                            <constraint firstItem="YDT-DU-f1Z" firstAttribute="top" secondItem="MY2-kI-am7" secondAttribute="bottom" constant="30" id="ShR-zH-jdC"/>
                             <constraint firstItem="OZy-vC-Cla" firstAttribute="top" secondItem="qQq-yO-1MK" secondAttribute="bottom" constant="60" id="X0L-RW-pkI"/>
                             <constraint firstItem="MY2-kI-am7" firstAttribute="top" secondItem="WJx-XF-m9c" secondAttribute="bottom" constant="20" id="XtE-ys-QUt"/>
                             <constraint firstAttribute="centerX" secondItem="ewK-ot-0bl" secondAttribute="centerX" id="Z7P-fD-wtW"/>
                             <constraint firstItem="MY2-kI-am7" firstAttribute="top" secondItem="WJx-XF-m9c" secondAttribute="bottom" constant="-34" id="b60-Fj-xov"/>
                             <constraint firstItem="MY2-kI-am7" firstAttribute="top" secondItem="qQq-yO-1MK" secondAttribute="bottom" constant="21" id="cD1-fY-52R"/>
                             <constraint firstItem="MY2-kI-am7" firstAttribute="top" secondItem="WJx-XF-m9c" secondAttribute="bottom" constant="10" id="ecv-tv-aOT"/>
+                            <constraint firstAttribute="centerX" secondItem="YDT-DU-f1Z" secondAttribute="centerX" constant="5" id="jI1-Wp-204"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ewK-ot-0bl" secondAttribute="trailing" constant="40" id="kkQ-dw-EEc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MY2-kI-am7" secondAttribute="trailing" constant="20" id="lMB-Hb-Eoh"/>
                             <constraint firstItem="MY2-kI-am7" firstAttribute="leading" secondItem="FA3-MV-MKQ" secondAttribute="leadingMargin" constant="20" id="x39-gv-vYq"/>
@@ -88,11 +98,13 @@
                                 <exclude reference="cD1-fY-52R"/>
                                 <exclude reference="ecv-tv-aOT"/>
                                 <exclude reference="0QX-Jh-Nhw"/>
+                                <exclude reference="kkQ-dw-EEc"/>
                                 <exclude reference="zgW-8P-Ba6"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="asdf" destination="YDT-DU-f1Z" id="mm5-aw-RD7"/>
                         <outlet property="button" destination="OZy-vC-Cla" id="OMB-qo-FKU"/>
                         <outlet property="volView" destination="ewK-ot-0bl" id="300-LY-mJh"/>
                     </connections>

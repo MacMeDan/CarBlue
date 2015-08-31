@@ -16,9 +16,13 @@ class ViewController: UIViewController, ADBannerViewDelegate {
     
     @IBOutlet weak var volView: MPVolumeView!
     
+    @IBOutlet weak var asdf: AsdfView!
     @IBOutlet weak var button: UIButton!
    
-        
+    @IBAction func touchyTouchy(sender: AnyObject) {
+        asdf.addDoitAnimation(removedOnCompletion: false)
+    }
+    
     var bannerAdView = ADBannerView(adType: ADAdType.Banner)
     
     override func viewDidLoad() {
