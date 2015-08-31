@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  BluetoothAudoUpgrade
 //
-//  Created by P Leonard on 8/18/15.
+//  Created by Daniel Leonard on 8/18/15.
 //  Copyright (c) 2015 Macme. All rights reserved.
 //
 
@@ -16,6 +16,9 @@ class ViewController: UIViewController, ADBannerViewDelegate {
     
     @IBOutlet weak var volView: MPVolumeView!
     
+    @IBOutlet weak var button: UIButton!
+   
+        
     var bannerAdView = ADBannerView(adType: ADAdType.Banner)
     
     override func viewDidLoad() {

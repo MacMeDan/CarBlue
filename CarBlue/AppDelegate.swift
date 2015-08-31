@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  CarBlue
 //
-//  Created by P Leonard on 8/18/15.
+//  Created by Daniel Leonard on 8/18/15.
 //  Copyright (c) 2015 betternet. All rights reserved.
 //
 
