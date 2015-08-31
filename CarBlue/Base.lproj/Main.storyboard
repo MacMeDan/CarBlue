@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ewK-ot-0bl" customClass="MPVolumeView">
-                                <rect key="frame" x="56" y="280" width="488" height="40"/>
+                                <rect key="frame" x="56" y="220" width="488" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="7On-mF-RxE"/>
@@ -31,81 +31,125 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Car Blue" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WJx-XF-m9c">
-                                <rect key="frame" x="219" y="80" width="162" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Car Blue" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WJx-XF-m9c">
+                                <rect key="frame" x="16" y="40" width="568" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="162" id="9Ie-Sh-oUt"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="34"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="9Ie-Sh-oUt"/>
+                                    </mask>
+                                </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Make sure your music app is open. 2. Your device is paired to your car. 3. That I am open. 4. Let us do the rest. " lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MY2-kI-am7">
-                                <rect key="frame" x="36" y="121" width="528" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OZy-vC-Cla">
-                                <rect key="frame" x="98" y="80" width="46" height="30"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="touchyTouchy:" destination="fWm-9L-xV5" eventType="touchUpInside" id="XBh-T1-ErB"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="YDT-DU-f1Z" customClass="AsdfView" customModule="CarBlue" customModuleProvider="target">
-                                <rect key="frame" x="231" y="192" width="128" height="128"/>
+                                <rect key="frame" x="231" y="82" width="128" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="128" id="1Xk-nA-rrA"/>
                                     <constraint firstAttribute="width" secondItem="YDT-DU-f1Z" secondAttribute="height" multiplier="1:1" id="gOW-Z5-EKh"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3. That I'am open.  " lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MY2-kI-am7">
+                                <rect key="frame" x="156" y="457" width="149" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Make sure your music app is open." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E1k-6e-FFw">
+                                <rect key="frame" x="156" y="385" width="288" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="ara-7C-Kiy" customClass="CarBlueView" customModule="CarBlue" customModuleProvider="target">
+                                <rect key="frame" x="232" y="270" width="127" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ara-7C-Kiy" secondAttribute="height" multiplier="127:100" id="3Sp-cf-5Gq"/>
+                                    <constraint firstAttribute="width" constant="127" id="Zle-QF-dmA"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. Your device is paired to your car." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxv-VD-fic">
+                                <rect key="frame" x="156" y="421" width="269" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4. Let us take care of the rest." lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NcK-C5-rNU">
+                                <rect key="frame" x="156" y="493" width="229" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.14704496449734838" green="0.14053714104410983" blue="0.16349865872450553" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="WJx-XF-m9c" firstAttribute="leading" secondItem="OZy-vC-Cla" secondAttribute="trailing" constant="75" id="0QX-Jh-Nhw"/>
                             <constraint firstItem="MY2-kI-am7" firstAttribute="trailing" secondItem="FA3-MV-MKQ" secondAttribute="trailingMargin" constant="20" id="1wU-1C-0Ry"/>
-                            <constraint firstItem="WJx-XF-m9c" firstAttribute="top" secondItem="qQq-yO-1MK" secondAttribute="bottom" constant="60" id="6mW-JB-etS"/>
+                            <constraint firstItem="XCX-KQ-i4W" firstAttribute="top" relation="greaterThanOrEqual" secondItem="MY2-kI-am7" secondAttribute="bottom" id="2WE-Fh-7Lx"/>
+                            <constraint firstAttribute="centerY" secondItem="ara-7C-Kiy" secondAttribute="centerY" constant="-93" id="3Em-ce-Ig6"/>
+                            <constraint firstItem="WJx-XF-m9c" firstAttribute="top" secondItem="qQq-yO-1MK" secondAttribute="bottom" constant="20" id="6mW-JB-etS"/>
+                            <constraint firstItem="ewK-ot-0bl" firstAttribute="top" secondItem="YDT-DU-f1Z" secondAttribute="bottom" constant="10" id="76S-bp-ROZ"/>
                             <constraint firstAttribute="centerX" secondItem="MY2-kI-am7" secondAttribute="centerX" id="9aW-gm-fC8"/>
                             <constraint firstAttribute="centerX" secondItem="WJx-XF-m9c" secondAttribute="centerX" id="ARJ-WQ-AGP"/>
+                            <constraint firstAttribute="centerX" secondItem="E1k-6e-FFw" secondAttribute="centerX" id="C9n-XW-wT1"/>
                             <constraint firstItem="MY2-kI-am7" firstAttribute="leading" secondItem="FA3-MV-MKQ" secondAttribute="leadingMargin" constant="20" id="CvO-zc-XOJ"/>
-                            <constraint firstItem="OZy-vC-Cla" firstAttribute="leading" secondItem="FA3-MV-MKQ" secondAttribute="leadingMargin" constant="82" id="FAQ-50-Hgi"/>
+                            <constraint firstItem="WJx-XF-m9c" firstAttribute="leading" secondItem="FA3-MV-MKQ" secondAttribute="leadingMargin" id="DTl-ES-iiy"/>
                             <constraint firstItem="ewK-ot-0bl" firstAttribute="leading" secondItem="FA3-MV-MKQ" secondAttribute="leadingMargin" constant="40" id="KOF-Mu-IKs"/>
+                            <constraint firstItem="cxv-VD-fic" firstAttribute="leading" secondItem="MY2-kI-am7" secondAttribute="leading" id="LHq-tC-q6F"/>
+                            <constraint firstItem="MY2-kI-am7" firstAttribute="top" secondItem="cxv-VD-fic" secondAttribute="bottom" constant="15" id="MsE-Vb-dNT"/>
+                            <constraint firstItem="NcK-C5-rNU" firstAttribute="leading" secondItem="E1k-6e-FFw" secondAttribute="leading" id="Ogr-FZ-33b"/>
                             <constraint firstAttribute="centerX" secondItem="MY2-kI-am7" secondAttribute="centerX" id="PGQ-tv-1pG"/>
+                            <constraint firstItem="NcK-C5-rNU" firstAttribute="top" secondItem="MY2-kI-am7" secondAttribute="bottom" constant="15" id="PxO-gd-4Yx"/>
                             <constraint firstAttribute="centerY" secondItem="ewK-ot-0bl" secondAttribute="centerY" id="R7f-3K-wUL"/>
                             <constraint firstItem="ewK-ot-0bl" firstAttribute="top" relation="greaterThanOrEqual" secondItem="MY2-kI-am7" secondAttribute="bottom" constant="20" id="S9v-Pr-LLB"/>
                             <constraint firstItem="YDT-DU-f1Z" firstAttribute="top" secondItem="MY2-kI-am7" secondAttribute="bottom" constant="30" id="ShR-zH-jdC"/>
-                            <constraint firstItem="OZy-vC-Cla" firstAttribute="top" secondItem="qQq-yO-1MK" secondAttribute="bottom" constant="60" id="X0L-RW-pkI"/>
+                            <constraint firstAttribute="centerX" secondItem="cxv-VD-fic" secondAttribute="centerX" constant="14.5" id="Tbl-au-sOS"/>
                             <constraint firstItem="MY2-kI-am7" firstAttribute="top" secondItem="WJx-XF-m9c" secondAttribute="bottom" constant="20" id="XtE-ys-QUt"/>
                             <constraint firstAttribute="centerX" secondItem="ewK-ot-0bl" secondAttribute="centerX" id="Z7P-fD-wtW"/>
                             <constraint firstItem="MY2-kI-am7" firstAttribute="top" secondItem="WJx-XF-m9c" secondAttribute="bottom" constant="-34" id="b60-Fj-xov"/>
+                            <constraint firstItem="E1k-6e-FFw" firstAttribute="leading" secondItem="cxv-VD-fic" secondAttribute="leading" id="bkb-SY-NLo"/>
                             <constraint firstItem="MY2-kI-am7" firstAttribute="top" secondItem="qQq-yO-1MK" secondAttribute="bottom" constant="21" id="cD1-fY-52R"/>
                             <constraint firstItem="MY2-kI-am7" firstAttribute="top" secondItem="WJx-XF-m9c" secondAttribute="bottom" constant="10" id="ecv-tv-aOT"/>
+                            <constraint firstItem="cxv-VD-fic" firstAttribute="top" secondItem="E1k-6e-FFw" secondAttribute="bottom" constant="15" id="eec-7M-NeC"/>
+                            <constraint firstItem="E1k-6e-FFw" firstAttribute="top" secondItem="ara-7C-Kiy" secondAttribute="bottom" constant="15" id="fHF-JN-GAr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WJx-XF-m9c" secondAttribute="trailing" id="fiO-Hy-Caw"/>
                             <constraint firstAttribute="centerX" secondItem="YDT-DU-f1Z" secondAttribute="centerX" constant="5" id="jI1-Wp-204"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ewK-ot-0bl" secondAttribute="trailing" constant="40" id="kkQ-dw-EEc"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="MY2-kI-am7" secondAttribute="trailing" constant="20" id="lMB-Hb-Eoh"/>
-                            <constraint firstItem="MY2-kI-am7" firstAttribute="leading" secondItem="FA3-MV-MKQ" secondAttribute="leadingMargin" constant="20" id="x39-gv-vYq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MY2-kI-am7" secondAttribute="trailing" id="lMB-Hb-Eoh"/>
+                            <constraint firstItem="XCX-KQ-i4W" firstAttribute="top" relation="greaterThanOrEqual" secondItem="NcK-C5-rNU" secondAttribute="bottom" id="mva-Mr-a66"/>
+                            <constraint firstAttribute="centerX" secondItem="ara-7C-Kiy" secondAttribute="centerX" constant="4.5" id="o6c-hH-7yT"/>
+                            <constraint firstItem="YDT-DU-f1Z" firstAttribute="top" secondItem="WJx-XF-m9c" secondAttribute="bottom" constant="1" id="q9t-UR-N4e"/>
+                            <constraint firstItem="MY2-kI-am7" firstAttribute="leading" secondItem="FA3-MV-MKQ" secondAttribute="leadingMargin" id="x39-gv-vYq"/>
+                            <constraint firstItem="ara-7C-Kiy" firstAttribute="top" secondItem="ewK-ot-0bl" secondAttribute="bottom" constant="10" id="xz5-yd-Wuf"/>
                             <constraint firstItem="ewK-ot-0bl" firstAttribute="top" relation="lessThanOrEqual" secondItem="MY2-kI-am7" secondAttribute="bottom" constant="103" id="zgW-8P-Ba6"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="R7f-3K-wUL"/>
+                                <exclude reference="S9v-Pr-LLB"/>
+                                <exclude reference="kkQ-dw-EEc"/>
+                                <exclude reference="zgW-8P-Ba6"/>
+                                <exclude reference="ShR-zH-jdC"/>
+                                <exclude reference="3Em-ce-Ig6"/>
+                                <exclude reference="Tbl-au-sOS"/>
                                 <exclude reference="1wU-1C-0Ry"/>
                                 <exclude reference="9aW-gm-fC8"/>
                                 <exclude reference="CvO-zc-XOJ"/>
+                                <exclude reference="PGQ-tv-1pG"/>
+                                <exclude reference="XtE-ys-QUt"/>
                                 <exclude reference="b60-Fj-xov"/>
                                 <exclude reference="cD1-fY-52R"/>
                                 <exclude reference="ecv-tv-aOT"/>
-                                <exclude reference="0QX-Jh-Nhw"/>
-                                <exclude reference="kkQ-dw-EEc"/>
-                                <exclude reference="zgW-8P-Ba6"/>
+                                <exclude reference="lMB-Hb-Eoh"/>
+                                <exclude reference="x39-gv-vYq"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="asdf" destination="YDT-DU-f1Z" id="mm5-aw-RD7"/>
-                        <outlet property="button" destination="OZy-vC-Cla" id="OMB-qo-FKU"/>
+                        <outlet property="carview" destination="ara-7C-Kiy" id="QNP-jy-eJG"/>
                         <outlet property="volView" destination="ewK-ot-0bl" id="300-LY-mJh"/>
                     </connections>
                 </viewController>

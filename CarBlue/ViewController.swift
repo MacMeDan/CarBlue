@@ -17,11 +17,10 @@ class ViewController: UIViewController, ADBannerViewDelegate {
     @IBOutlet weak var volView: MPVolumeView!
     
     @IBOutlet weak var asdf: AsdfView!
-    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var carview: CarBlueView!
+    
    
-    @IBAction func touchyTouchy(sender: AnyObject) {
-        asdf.addDoitAnimation(removedOnCompletion: false)
-    }
+    
     
     var bannerAdView = ADBannerView(adType: ADAdType.Banner)
     
@@ -30,6 +29,9 @@ class ViewController: UIViewController, ADBannerViewDelegate {
         bannerAdView.delegate = self
         self.canDisplayBannerAds = true
         configureAudioSession()
+        asdf.addDoitAnimation()
+        carview.addCarStartAnimation()
+        
 
     }
     

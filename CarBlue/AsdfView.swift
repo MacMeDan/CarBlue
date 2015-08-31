@@ -121,11 +121,11 @@ class AsdfView : UIView {
 		addDoitAnimationWithBeginTime(0, fillMode: kCAFillModeBoth, removedOnCompletion: false, completion: completion)
 	}
 
-	func addDoitAnimation(removedOnCompletion removedOnCompletion: Bool) {
+	func addDoitAnimation(#removedOnCompletion: Bool) {
 		addDoitAnimationWithBeginTime(0, fillMode: removedOnCompletion ? kCAFillModeRemoved : kCAFillModeBoth, removedOnCompletion: removedOnCompletion, completion: nil)
 	}
 
-	func addDoitAnimation(removedOnCompletion removedOnCompletion: Bool, completion: ((Bool) -> Void)?) {
+	func addDoitAnimation(#removedOnCompletion: Bool, completion: ((Bool) -> Void)?) {
 		addDoitAnimationWithBeginTime(0, fillMode: removedOnCompletion ? kCAFillModeRemoved : kCAFillModeBoth, removedOnCompletion: removedOnCompletion, completion: completion)
 	}
 
