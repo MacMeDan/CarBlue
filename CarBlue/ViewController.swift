@@ -20,39 +20,6 @@ class ViewController: UIViewController, ADBannerViewDelegate {
     
     @IBOutlet weak var asdf: AsdfView!
     
-    @IBOutlet weak var carAni: CarBlueView!
-    
-    
-    @IBAction func tapOccured(sender: AnyObject) {
-        switch self.steps{
-        case 0:
-            carAni.addCarStartAnimation()
-            self.steps += 1
-        case 1:
-            carAni.addStepOneAnimation()
-            self.steps += 1
-        case 2:
-            carAni.addStepTwoAnimation()
-            self.steps += 1
-        case 3:
-            carAni.addSetpThreeAnimation()
-            self.steps += 1
-        case 4:
-            carAni.addStepFourAnimation()
-            self.steps += 1
-        case 5:
-            carAni.addCarStartAnimation()  //creates a loop if the user keeps tapping
-            self.steps = 1
-        default:
-            carAni.addCarStartAnimation()
-        }
-       
-       
-    
-    }
-   
-    
-    
     var bannerAdView = ADBannerView(adType: ADAdType.Banner)
     
     override func viewDidLoad() {
@@ -60,8 +27,7 @@ class ViewController: UIViewController, ADBannerViewDelegate {
         bannerAdView.delegate = self
         self.canDisplayBannerAds = true
         configureAudioSession()
-        carAni.addCarStartAnimation()
-        asdf.addHideAnimation()
+        asdf.addDoitAnimation()
        
     }
     
