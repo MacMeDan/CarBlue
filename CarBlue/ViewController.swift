@@ -61,10 +61,8 @@ class ViewController: UIViewController, ADBannerViewDelegate {
         self.canDisplayBannerAds = true
         configureAudioSession()
         carAni.addCarStartAnimation()
-        
-        
-        
-
+        asdf.addHideAnimation()
+       
     }
     
     override func didReceiveMemoryWarning() {
