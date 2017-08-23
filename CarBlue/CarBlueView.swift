@@ -24,11 +24,10 @@ class CarBlueView : UIView {
 		super.init(frame: frame)
 		self.setupHierarchy()
 	}
-
-	required init(coder aDecoder: NSCoder) {
-		super.init(coder: aDecoder)
-		self.setupHierarchy()
-	}
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
 	// - MARK: Scaling
 
@@ -39,9 +38,9 @@ class CarBlueView : UIView {
 			var xScale = self.bounds.size.width / scalingView.bounds.size.width
 			var yScale = self.bounds.size.height / scalingView.bounds.size.height
 			switch contentMode {
-			case .ScaleToFill:
+			case .scaleToFill:
 				break
-			case .ScaleAspectFill:
+			case .scaleAspectFill:
 				let scale = max(xScale, yScale)
 				xScale = scale
 				yScale = scale
@@ -50,8 +49,8 @@ class CarBlueView : UIView {
 				xScale = scale
 				yScale = scale
 			}
-			scalingView.transform = CGAffineTransformMakeScale(xScale, yScale)
-			scalingView.center = CGPoint(x:CGRectGetMidX(self.bounds), y:CGRectGetMidY(self.bounds))
+			scalingView.transform = CGAffineTransform(scaleX: xScale, y: yScale)
+			scalingView.center = CGPoint(x:self.bounds.midX, y:self.bounds.midY)
 		}
 	}
 
@@ -59,7 +58,7 @@ class CarBlueView : UIView {
 
 	func setupHierarchy() {
 		var viewsByName: [String : UIView] = [:]
-		let bundle = NSBundle(forClass:self.dynamicType)
+		let bundle = Bundle(for:type(of: self))
 		let __scaling__ = UIView()
 		__scaling__.bounds = CGRect(x:0, y:0, width:790, height:1252)
 		__scaling__.center = CGPoint(x:395.4, y:626.3)
@@ -69,38 +68,38 @@ class CarBlueView : UIView {
 		let carBlue = UIImageView()
 		carBlue.bounds = CGRect(x:0, y:0, width:260.0, height:260.0)
 		var imgCarBlue: UIImage!
-		if let imagePath = bundle.pathForResource("CarBlue.png", ofType:nil) {
+		if let imagePath = bundle.path(forResource: "CarBlue.png", ofType:nil) {
 			imgCarBlue = UIImage(contentsOfFile:imagePath)
 		}
 		carBlue.image = imgCarBlue
-		carBlue.contentMode = .Center;
+		carBlue.contentMode = .center;
 		carBlue.layer.position = CGPoint(x:395.395, y:1124.509)
 		carBlue.alpha = 0.00
-		carBlue.transform = CGAffineTransformMakeScale(0.99, 0.99)
+		carBlue.transform = CGAffineTransform(scaleX: 0.99, y: 0.99)
 		__scaling__.addSubview(carBlue)
 		viewsByName["CarBlue"] = carBlue
 
 		let titletext = UIImageView()
 		titletext.bounds = CGRect(x:0, y:0, width:378.0, height:58.0)
 		var imgTitleText: UIImage!
-		if let imagePath = bundle.pathForResource("Title Text.png", ofType:nil) {
+		if let imagePath = bundle.path(forResource: "Title Text.png", ofType:nil) {
 			imgTitleText = UIImage(contentsOfFile:imagePath)
 		}
 		titletext.image = imgTitleText
-		titletext.contentMode = .Center;
+		titletext.contentMode = .center;
 		titletext.layer.position = CGPoint(x:395.395, y:107.115)
-		titletext.transform = CGAffineTransformMakeScale(1.45, 1.45)
+		titletext.transform = CGAffineTransform(scaleX: 1.45, y: 1.45)
 		__scaling__.addSubview(titletext)
 		viewsByName["titletext"] = titletext
 
 		let step4 = UIImageView()
 		step4.bounds = CGRect(x:0, y:0, width:529.0, height:122.0)
 		var imgStep4: UIImage!
-		if let imagePath = bundle.pathForResource("Step 4.png", ofType:nil) {
+		if let imagePath = bundle.path(forResource: "Step 4.png", ofType:nil) {
 			imgStep4 = UIImage(contentsOfFile:imagePath)
 		}
 		step4.image = imgStep4
-		step4.contentMode = .Center;
+		step4.contentMode = .center;
 		step4.layer.position = CGPoint(x:395.395, y:255.000)
 		step4.alpha = 0.00
 		__scaling__.addSubview(step4)
@@ -109,11 +108,11 @@ class CarBlueView : UIView {
 		let step3 = UIImageView()
 		step3.bounds = CGRect(x:0, y:0, width:378.0, height:57.0)
 		var imgStep3: UIImage!
-		if let imagePath = bundle.pathForResource("Step 3.png", ofType:nil) {
+		if let imagePath = bundle.path(forResource: "Step 3.png", ofType:nil) {
 			imgStep3 = UIImage(contentsOfFile:imagePath)
 		}
 		step3.image = imgStep3
-		step3.contentMode = .Center;
+		step3.contentMode = .center;
 		step3.layer.position = CGPoint(x:395.395, y:255.000)
 		step3.alpha = 0.00
 		__scaling__.addSubview(step3)
@@ -122,11 +121,11 @@ class CarBlueView : UIView {
 		let step2 = UIImageView()
 		step2.bounds = CGRect(x:0, y:0, width:465.0, height:122.0)
 		var imgStep2: UIImage!
-		if let imagePath = bundle.pathForResource("Step 2.png", ofType:nil) {
+		if let imagePath = bundle.path(forResource: "Step 2.png", ofType:nil) {
 			imgStep2 = UIImage(contentsOfFile:imagePath)
 		}
 		step2.image = imgStep2
-		step2.contentMode = .Center;
+		step2.contentMode = .center;
 		step2.layer.position = CGPoint(x:380.969, y:255.000)
 		step2.alpha = 0.00
 		__scaling__.addSubview(step2)
@@ -135,11 +134,11 @@ class CarBlueView : UIView {
 		let step1 = UIImageView()
 		step1.bounds = CGRect(x:0, y:0, width:465.0, height:122.0)
 		var imgStepOne: UIImage!
-		if let imagePath = bundle.pathForResource("Step One.png", ofType:nil) {
+		if let imagePath = bundle.path(forResource: "Step One.png", ofType:nil) {
 			imgStepOne = UIImage(contentsOfFile:imagePath)
 		}
 		step1.image = imgStepOne
-		step1.contentMode = .Center;
+		step1.contentMode = .center;
 		step1.layer.position = CGPoint(x:391.490, y:254.024)
 		step1.alpha = 0.00
 		__scaling__.addSubview(step1)
@@ -148,11 +147,11 @@ class CarBlueView : UIView {
 		let exsplain = UIImageView()
 		exsplain.bounds = CGRect(x:0, y:0, width:657.0, height:122.0)
 		var imgExsplain: UIImage!
-		if let imagePath = bundle.pathForResource("exsplain.png", ofType:nil) {
+		if let imagePath = bundle.path(forResource: "exsplain.png", ofType:nil) {
 			imgExsplain = UIImage(contentsOfFile:imagePath)
 		}
 		exsplain.image = imgExsplain
-		exsplain.contentMode = .Center;
+		exsplain.contentMode = .center;
 		exsplain.layer.position = CGPoint(x:395.395, y:247.960)
 		exsplain.alpha = 0.00
 		__scaling__.addSubview(exsplain)
@@ -161,11 +160,11 @@ class CarBlueView : UIView {
 		let slogan = UIImageView()
 		slogan.bounds = CGRect(x:0, y:0, width:707.0, height:58.0)
 		var imgSlogan: UIImage!
-		if let imagePath = bundle.pathForResource("slogan.png", ofType:nil) {
+		if let imagePath = bundle.path(forResource: "slogan.png", ofType:nil) {
 			imgSlogan = UIImage(contentsOfFile:imagePath)
 		}
 		slogan.image = imgSlogan
-		slogan.contentMode = .Center;
+		slogan.contentMode = .center;
 		slogan.layer.position = CGPoint(x:395.395, y:335.548)
 		slogan.alpha = 0.00
 		__scaling__.addSubview(slogan)
@@ -180,152 +179,152 @@ class CarBlueView : UIView {
 		addCarStartAnimationWithBeginTime(0, fillMode: kCAFillModeBoth, removedOnCompletion: false, completion: nil)
 	}
 
-	func addCarStartAnimation(completion: ((Bool) -> Void)?) {
+	func addCarStartAnimation(_ completion: ((Bool) -> Void)?) {
 		addCarStartAnimationWithBeginTime(0, fillMode: kCAFillModeBoth, removedOnCompletion: false, completion: completion)
 	}
 
-	func addCarStartAnimation(removedOnCompletion removedOnCompletion: Bool) {
+	func addCarStartAnimation(removedOnCompletion: Bool) {
 		addCarStartAnimationWithBeginTime(0, fillMode: removedOnCompletion ? kCAFillModeRemoved : kCAFillModeBoth, removedOnCompletion: removedOnCompletion, completion: nil)
 	}
 
-	func addCarStartAnimation(removedOnCompletion removedOnCompletion: Bool, completion: ((Bool) -> Void)?) {
+	func addCarStartAnimation(removedOnCompletion: Bool, completion: ((Bool) -> Void)?) {
 		addCarStartAnimationWithBeginTime(0, fillMode: removedOnCompletion ? kCAFillModeRemoved : kCAFillModeBoth, removedOnCompletion: removedOnCompletion, completion: completion)
 	}
 
-	func addCarStartAnimationWithBeginTime(beginTime: CFTimeInterval, fillMode: String, removedOnCompletion: Bool, completion: ((Bool) -> Void)?) {
+	func addCarStartAnimationWithBeginTime(_ beginTime: CFTimeInterval, fillMode: String, removedOnCompletion: Bool, completion: ((Bool) -> Void)?) {
 		let linearTiming = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
 		if let complete = completion {
 			let representativeAnimation = CABasicAnimation(keyPath: "not.a.real.key")
 			representativeAnimation.duration = 7.000
-			representativeAnimation.delegate = self
-			self.layer.addAnimation(representativeAnimation, forKey: "CarStart")
-			self.animationCompletions[layer.animationForKey("CarStart")] = complete
+			representativeAnimation.delegate = self as? CAAnimationDelegate
+			self.layer.add(representativeAnimation, forKey: "CarStart")
+			self.animationCompletions[layer.animation(forKey: "CarStart")!] = complete
 		}
 
 		let titletextRotationAnimation = CAKeyframeAnimation(keyPath: "transform.rotation.z")
 		titletextRotationAnimation.duration = 7.000
-		titletextRotationAnimation.values = [0.000 as Float, -0.035 as Float, 0.035 as Float, -0.000 as Float, -0.000 as Float]
-		titletextRotationAnimation.keyTimes = [0.000 as Float, 0.086 as Float, 0.136 as Float, 0.186 as Float, 1.000 as Float]
+		titletextRotationAnimation.values = [0.000, -0.035, 0.035, -0.000, -0.000]
+		titletextRotationAnimation.keyTimes = [0.000, 0.086, 0.136, 0.186, 1.000]
 		titletextRotationAnimation.timingFunctions = [linearTiming, linearTiming, linearTiming, linearTiming]
 		titletextRotationAnimation.beginTime = beginTime
 		titletextRotationAnimation.fillMode = fillMode
-		titletextRotationAnimation.removedOnCompletion = removedOnCompletion
-		self.viewsByName["titletext"]?.layer.addAnimation(titletextRotationAnimation, forKey:"carStart_Rotation")
+		titletextRotationAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["titletext"]?.layer.add(titletextRotationAnimation, forKey:"carStart_Rotation")
 
 		let exsplainRotationAnimation = CAKeyframeAnimation(keyPath: "transform.rotation.z")
 		exsplainRotationAnimation.duration = 7.000
-		exsplainRotationAnimation.values = [0.000 as Float, 0.002 as Float, -0.017 as Float, 0.017 as Float, 0.000 as Float, 0.000 as Float]
-		exsplainRotationAnimation.keyTimes = [0.000 as Float, 0.429 as Float, 0.500 as Float, 0.571 as Float, 0.643 as Float, 1.000 as Float]
+		exsplainRotationAnimation.values = [0.000, 0.002, -0.017, 0.017, 0.000, 0.000]
+		exsplainRotationAnimation.keyTimes = [0.000, 0.429, 0.500, 0.571, 0.643, 1.000]
 		exsplainRotationAnimation.timingFunctions = [linearTiming, linearTiming, linearTiming, linearTiming, linearTiming]
 		exsplainRotationAnimation.beginTime = beginTime
 		exsplainRotationAnimation.fillMode = fillMode
-		exsplainRotationAnimation.removedOnCompletion = removedOnCompletion
-		self.viewsByName["exsplain"]?.layer.addAnimation(exsplainRotationAnimation, forKey:"carStart_Rotation")
+		exsplainRotationAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["exsplain"]?.layer.add(exsplainRotationAnimation, forKey:"carStart_Rotation")
 
 		let exsplainOpacityAnimation = CAKeyframeAnimation(keyPath: "opacity")
 		exsplainOpacityAnimation.duration = 7.000
-		exsplainOpacityAnimation.values = [0.000 as Float, 0.000 as Float, 1.000 as Float, 1.000 as Float, 1.000 as Float]
-		exsplainOpacityAnimation.keyTimes = [0.000 as Float, 0.392 as Float, 0.429 as Float, 0.929 as Float, 1.000 as Float]
+		exsplainOpacityAnimation.values = [0.000, 0.000, 1.000, 1.000, 1.000]
+		exsplainOpacityAnimation.keyTimes = [0.000, 0.392, 0.429, 0.929, 1.000]
 		exsplainOpacityAnimation.timingFunctions = [linearTiming, linearTiming, linearTiming, linearTiming]
 		exsplainOpacityAnimation.beginTime = beginTime
 		exsplainOpacityAnimation.fillMode = fillMode
-		exsplainOpacityAnimation.removedOnCompletion = removedOnCompletion
-		self.viewsByName["exsplain"]?.layer.addAnimation(exsplainOpacityAnimation, forKey:"carStart_Opacity")
+		exsplainOpacityAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["exsplain"]?.layer.add(exsplainOpacityAnimation, forKey:"carStart_Opacity")
 
 		let sloganOpacityAnimation = CAKeyframeAnimation(keyPath: "opacity")
 		sloganOpacityAnimation.duration = 7.000
-		sloganOpacityAnimation.values = [0.000 as Float, 0.000 as Float, 1.000 as Float, 1.000 as Float]
-		sloganOpacityAnimation.keyTimes = [0.000 as Float, 0.571 as Float, 0.679 as Float, 1.000 as Float]
+		sloganOpacityAnimation.values = [0.000, 0.000, 1.000, 1.000]
+		sloganOpacityAnimation.keyTimes = [0.000, 0.571, 0.679, 1.000]
 		sloganOpacityAnimation.timingFunctions = [linearTiming, linearTiming, linearTiming]
 		sloganOpacityAnimation.beginTime = beginTime
 		sloganOpacityAnimation.fillMode = fillMode
-		sloganOpacityAnimation.removedOnCompletion = removedOnCompletion
-		self.viewsByName["slogan"]?.layer.addAnimation(sloganOpacityAnimation, forKey:"carStart_Opacity")
+		sloganOpacityAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["slogan"]?.layer.add(sloganOpacityAnimation, forKey:"carStart_Opacity")
 
 		let sloganScaleXAnimation = CAKeyframeAnimation(keyPath: "transform.scale.x")
 		sloganScaleXAnimation.duration = 7.000
-		sloganScaleXAnimation.values = [1.000 as Float, 1.060 as Float, 1.010 as Float, 1.010 as Float]
-		sloganScaleXAnimation.keyTimes = [0.000 as Float, 0.714 as Float, 0.786 as Float, 1.000 as Float]
+		sloganScaleXAnimation.values = [1.000, 1.060, 1.010, 1.010]
+		sloganScaleXAnimation.keyTimes = [0.000, 0.714, 0.786, 1.000]
 		sloganScaleXAnimation.timingFunctions = [linearTiming, linearTiming, linearTiming]
 		sloganScaleXAnimation.beginTime = beginTime
 		sloganScaleXAnimation.fillMode = fillMode
-		sloganScaleXAnimation.removedOnCompletion = removedOnCompletion
-		self.viewsByName["slogan"]?.layer.addAnimation(sloganScaleXAnimation, forKey:"carStart_ScaleX")
+		sloganScaleXAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["slogan"]?.layer.add(sloganScaleXAnimation, forKey:"carStart_ScaleX")
 
 		let sloganScaleYAnimation = CAKeyframeAnimation(keyPath: "transform.scale.y")
 		sloganScaleYAnimation.duration = 7.000
-		sloganScaleYAnimation.values = [1.000 as Float, 1.060 as Float, 1.010 as Float, 1.010 as Float]
-		sloganScaleYAnimation.keyTimes = [0.000 as Float, 0.714 as Float, 0.786 as Float, 1.000 as Float]
+		sloganScaleYAnimation.values = [1.000, 1.060, 1.010, 1.010]
+		sloganScaleYAnimation.keyTimes = [0.000, 0.714, 0.786, 1.000]
 		sloganScaleYAnimation.timingFunctions = [linearTiming, linearTiming, linearTiming]
 		sloganScaleYAnimation.beginTime = beginTime
 		sloganScaleYAnimation.fillMode = fillMode
-		sloganScaleYAnimation.removedOnCompletion = removedOnCompletion
-		self.viewsByName["slogan"]?.layer.addAnimation(sloganScaleYAnimation, forKey:"carStart_ScaleY")
+		sloganScaleYAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["slogan"]?.layer.add(sloganScaleYAnimation, forKey:"carStart_ScaleY")
 
 		let carBlueRotationAnimation = CAKeyframeAnimation(keyPath: "transform.rotation.z")
 		carBlueRotationAnimation.duration = 7.000
-		carBlueRotationAnimation.values = [0.000 as Float, 0.017 as Float, 0.000 as Float, -0.012 as Float, 0.000 as Float, 0.035 as Float, -0.035 as Float, -0.000 as Float, 0.035 as Float, -0.035 as Float, 0.000 as Float, 0.000 as Float]
-		carBlueRotationAnimation.keyTimes = [0.000 as Float, 0.086 as Float, 0.114 as Float, 0.136 as Float, 0.157 as Float, 0.186 as Float, 0.214 as Float, 0.243 as Float, 0.264 as Float, 0.300 as Float, 0.357 as Float, 1.000 as Float]
+		carBlueRotationAnimation.values = [0.000, 0.017, 0.000, -0.012, 0.000, 0.035, -0.035, -0.000, 0.035, -0.035, 0.000, 0.000]
+		carBlueRotationAnimation.keyTimes = [0.000, 0.086, 0.114, 0.136, 0.157, 0.186, 0.214, 0.243, 0.264, 0.300, 0.357, 1.000]
 		carBlueRotationAnimation.timingFunctions = [linearTiming, linearTiming, linearTiming, linearTiming, linearTiming, linearTiming, linearTiming, linearTiming, linearTiming, linearTiming, linearTiming]
 		carBlueRotationAnimation.beginTime = beginTime
 		carBlueRotationAnimation.fillMode = fillMode
-		carBlueRotationAnimation.removedOnCompletion = removedOnCompletion
-		self.viewsByName["CarBlue"]?.layer.addAnimation(carBlueRotationAnimation, forKey:"carStart_Rotation")
+		carBlueRotationAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["CarBlue"]?.layer.add(carBlueRotationAnimation, forKey:"carStart_Rotation")
 
 		let carBlueOpacityAnimation = CAKeyframeAnimation(keyPath: "opacity")
 		carBlueOpacityAnimation.duration = 7.000
-		carBlueOpacityAnimation.values = [0.000 as Float, 1.000 as Float, 1.000 as Float]
-		carBlueOpacityAnimation.keyTimes = [0.000 as Float, 0.014 as Float, 1.000 as Float]
+		carBlueOpacityAnimation.values = [0.000, 1.000, 1.000]
+		carBlueOpacityAnimation.keyTimes = [0.000, 0.014, 1.000]
 		carBlueOpacityAnimation.timingFunctions = [linearTiming, linearTiming]
 		carBlueOpacityAnimation.beginTime = beginTime
 		carBlueOpacityAnimation.fillMode = fillMode
-		carBlueOpacityAnimation.removedOnCompletion = removedOnCompletion
-		self.viewsByName["CarBlue"]?.layer.addAnimation(carBlueOpacityAnimation, forKey:"carStart_Opacity")
+		carBlueOpacityAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["CarBlue"]?.layer.add(carBlueOpacityAnimation, forKey:"carStart_Opacity")
 
 		let carBlueScaleXAnimation = CAKeyframeAnimation(keyPath: "transform.scale.x")
 		carBlueScaleXAnimation.duration = 7.000
-		carBlueScaleXAnimation.values = [0.986 as Float, 1.012 as Float, 0.988 as Float, 0.992 as Float, 0.990 as Float, 0.990 as Float]
-		carBlueScaleXAnimation.keyTimes = [0.000 as Float, 0.036 as Float, 0.071 as Float, 0.179 as Float, 0.257 as Float, 1.000 as Float]
+		carBlueScaleXAnimation.values = [0.986, 1.012, 0.988, 0.992, 0.990, 0.990]
+		carBlueScaleXAnimation.keyTimes = [0.000, 0.036, 0.071, 0.179, 0.257, 1.000]
 		carBlueScaleXAnimation.timingFunctions = [linearTiming, linearTiming, linearTiming, linearTiming, linearTiming]
 		carBlueScaleXAnimation.beginTime = beginTime
 		carBlueScaleXAnimation.fillMode = fillMode
-		carBlueScaleXAnimation.removedOnCompletion = removedOnCompletion
-		self.viewsByName["CarBlue"]?.layer.addAnimation(carBlueScaleXAnimation, forKey:"carStart_ScaleX")
+		carBlueScaleXAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["CarBlue"]?.layer.add(carBlueScaleXAnimation, forKey:"carStart_ScaleX")
 
 		let carBlueScaleYAnimation = CAKeyframeAnimation(keyPath: "transform.scale.y")
 		carBlueScaleYAnimation.duration = 7.000
-		carBlueScaleYAnimation.values = [0.986 as Float, 1.012 as Float, 0.988 as Float, 0.992 as Float, 0.990 as Float, 0.990 as Float]
-		carBlueScaleYAnimation.keyTimes = [0.000 as Float, 0.036 as Float, 0.071 as Float, 0.179 as Float, 0.257 as Float, 1.000 as Float]
+		carBlueScaleYAnimation.values = [0.986, 1.012, 0.988, 0.992, 0.990, 0.990]
+		carBlueScaleYAnimation.keyTimes = [0.000, 0.036, 0.071, 0.179, 0.257, 1.000]
 		carBlueScaleYAnimation.timingFunctions = [linearTiming, linearTiming, linearTiming, linearTiming, linearTiming]
 		carBlueScaleYAnimation.beginTime = beginTime
 		carBlueScaleYAnimation.fillMode = fillMode
-		carBlueScaleYAnimation.removedOnCompletion = removedOnCompletion
-		self.viewsByName["CarBlue"]?.layer.addAnimation(carBlueScaleYAnimation, forKey:"carStart_ScaleY")
+		carBlueScaleYAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["CarBlue"]?.layer.add(carBlueScaleYAnimation, forKey:"carStart_ScaleY")
 
 		let carBlueTranslationYAnimation = CAKeyframeAnimation(keyPath: "transform.translation.y")
 		carBlueTranslationYAnimation.duration = 7.000
-		carBlueTranslationYAnimation.values = [0.000 as Float, 2.000 as Float, 1.000 as Float, 3.000 as Float, 1.000 as Float, 1.000 as Float]
-		carBlueTranslationYAnimation.keyTimes = [0.000 as Float, 0.071 as Float, 0.157 as Float, 0.229 as Float, 0.307 as Float, 1.000 as Float]
+		carBlueTranslationYAnimation.values = [0.000, 2.000, 1.000, 3.000, 1.000, 1.000]
+		carBlueTranslationYAnimation.keyTimes = [0.000, 0.071, 0.157, 0.229, 0.307, 1.000]
 		carBlueTranslationYAnimation.timingFunctions = [linearTiming, linearTiming, linearTiming, linearTiming, linearTiming]
 		carBlueTranslationYAnimation.beginTime = beginTime
 		carBlueTranslationYAnimation.fillMode = fillMode
-		carBlueTranslationYAnimation.removedOnCompletion = removedOnCompletion
-		self.viewsByName["CarBlue"]?.layer.addAnimation(carBlueTranslationYAnimation, forKey:"carStart_TranslationY")
+		carBlueTranslationYAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["CarBlue"]?.layer.add(carBlueTranslationYAnimation, forKey:"carStart_TranslationY")
 	}
 
 	func removeCarStartAnimation() {
-		self.layer.removeAnimationForKey("CarStart")
-		self.viewsByName["titletext"]?.layer.removeAnimationForKey("carStart_Rotation")
-		self.viewsByName["exsplain"]?.layer.removeAnimationForKey("carStart_Rotation")
-		self.viewsByName["exsplain"]?.layer.removeAnimationForKey("carStart_Opacity")
-		self.viewsByName["slogan"]?.layer.removeAnimationForKey("carStart_Opacity")
-		self.viewsByName["slogan"]?.layer.removeAnimationForKey("carStart_ScaleX")
-		self.viewsByName["slogan"]?.layer.removeAnimationForKey("carStart_ScaleY")
-		self.viewsByName["CarBlue"]?.layer.removeAnimationForKey("carStart_Rotation")
-		self.viewsByName["CarBlue"]?.layer.removeAnimationForKey("carStart_Opacity")
-		self.viewsByName["CarBlue"]?.layer.removeAnimationForKey("carStart_ScaleX")
-		self.viewsByName["CarBlue"]?.layer.removeAnimationForKey("carStart_ScaleY")
-		self.viewsByName["CarBlue"]?.layer.removeAnimationForKey("carStart_TranslationY")
+		self.layer.removeAnimation(forKey: "CarStart")
+		self.viewsByName["titletext"]?.layer.removeAnimation(forKey: "carStart_Rotation")
+		self.viewsByName["exsplain"]?.layer.removeAnimation(forKey: "carStart_Rotation")
+		self.viewsByName["exsplain"]?.layer.removeAnimation(forKey: "carStart_Opacity")
+		self.viewsByName["slogan"]?.layer.removeAnimation(forKey: "carStart_Opacity")
+		self.viewsByName["slogan"]?.layer.removeAnimation(forKey: "carStart_ScaleX")
+		self.viewsByName["slogan"]?.layer.removeAnimation(forKey: "carStart_ScaleY")
+		self.viewsByName["CarBlue"]?.layer.removeAnimation(forKey: "carStart_Rotation")
+		self.viewsByName["CarBlue"]?.layer.removeAnimation(forKey: "carStart_Opacity")
+		self.viewsByName["CarBlue"]?.layer.removeAnimation(forKey: "carStart_ScaleX")
+		self.viewsByName["CarBlue"]?.layer.removeAnimation(forKey: "carStart_ScaleY")
+		self.viewsByName["CarBlue"]?.layer.removeAnimation(forKey: "carStart_TranslationY")
 	}
 
 	// - MARK: setpThree
@@ -334,75 +333,75 @@ class CarBlueView : UIView {
 		addSetpThreeAnimationWithBeginTime(0, fillMode: kCAFillModeBoth, removedOnCompletion: false, completion: nil)
 	}
 
-	func addSetpThreeAnimation(completion: ((Bool) -> Void)?) {
+	func addSetpThreeAnimation(_ completion: ((Bool) -> Void)?) {
 		addSetpThreeAnimationWithBeginTime(0, fillMode: kCAFillModeBoth, removedOnCompletion: false, completion: completion)
 	}
 
-	func addSetpThreeAnimation(removedOnCompletion removedOnCompletion: Bool) {
+	func addSetpThreeAnimation(removedOnCompletion: Bool) {
 		addSetpThreeAnimationWithBeginTime(0, fillMode: removedOnCompletion ? kCAFillModeRemoved : kCAFillModeBoth, removedOnCompletion: removedOnCompletion, completion: nil)
 	}
 
-	func addSetpThreeAnimation(removedOnCompletion removedOnCompletion: Bool, completion: ((Bool) -> Void)?) {
+	func addSetpThreeAnimation(removedOnCompletion: Bool, completion: ((Bool) -> Void)?) {
 		addSetpThreeAnimationWithBeginTime(0, fillMode: removedOnCompletion ? kCAFillModeRemoved : kCAFillModeBoth, removedOnCompletion: removedOnCompletion, completion: completion)
 	}
 
-	func addSetpThreeAnimationWithBeginTime(beginTime: CFTimeInterval, fillMode: String, removedOnCompletion: Bool, completion: ((Bool) -> Void)?) {
+	func addSetpThreeAnimationWithBeginTime(_ beginTime: CFTimeInterval, fillMode: String, removedOnCompletion: Bool, completion: ((Bool) -> Void)?) {
 		let linearTiming = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
 		if let complete = completion {
 			let representativeAnimation = CABasicAnimation(keyPath: "not.a.real.key")
 			representativeAnimation.duration = 4.500
-			representativeAnimation.delegate = self
-			self.layer.addAnimation(representativeAnimation, forKey: "SetpThree")
-			self.animationCompletions[layer.animationForKey("SetpThree")] = complete
+			representativeAnimation.delegate = self as? CAAnimationDelegate
+			self.layer.add(representativeAnimation, forKey: "SetpThree")
+			self.animationCompletions[layer.animation(forKey: "SetpThree")!] = complete
 		}
 
 		let step2OpacityAnimation = CAKeyframeAnimation(keyPath: "opacity")
 		step2OpacityAnimation.duration = 4.500
-		step2OpacityAnimation.values = [1.000 as Float, 0.000 as Float, 0.000 as Float]
-		step2OpacityAnimation.keyTimes = [0.000 as Float, 0.222 as Float, 1.000 as Float]
+		step2OpacityAnimation.values = [1.000, 0.000, 0.000]
+		step2OpacityAnimation.keyTimes = [0.000, 0.222, 1.000]
 		step2OpacityAnimation.timingFunctions = [linearTiming, linearTiming]
 		step2OpacityAnimation.beginTime = beginTime
 		step2OpacityAnimation.fillMode = fillMode
-		step2OpacityAnimation.removedOnCompletion = removedOnCompletion
-		self.viewsByName["step2"]?.layer.addAnimation(step2OpacityAnimation, forKey:"setpThree_Opacity")
+		step2OpacityAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["step2"]?.layer.add(step2OpacityAnimation, forKey:"setpThree_Opacity")
 
 		let step3RotationAnimation = CAKeyframeAnimation(keyPath: "transform.rotation.z")
 		step3RotationAnimation.duration = 4.500
-		step3RotationAnimation.values = [0.000 as Float, -0.017 as Float, 0.017 as Float, 0.000 as Float]
-		step3RotationAnimation.keyTimes = [0.000 as Float, 0.778 as Float, 0.889 as Float, 1.000 as Float]
+		step3RotationAnimation.values = [0.000, -0.017, 0.017, 0.000]
+		step3RotationAnimation.keyTimes = [0.000, 0.778, 0.889, 1.000]
 		step3RotationAnimation.timingFunctions = [linearTiming, linearTiming, linearTiming]
 		step3RotationAnimation.beginTime = beginTime
 		step3RotationAnimation.fillMode = fillMode
-		step3RotationAnimation.removedOnCompletion = removedOnCompletion
-		self.viewsByName["step3"]?.layer.addAnimation(step3RotationAnimation, forKey:"setpThree_Rotation")
+		step3RotationAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["step3"]?.layer.add(step3RotationAnimation, forKey:"setpThree_Rotation")
 
 		let step3OpacityAnimation = CAKeyframeAnimation(keyPath: "opacity")
 		step3OpacityAnimation.duration = 4.500
-		step3OpacityAnimation.values = [0.000 as Float, 1.000 as Float, 1.000 as Float]
-		step3OpacityAnimation.keyTimes = [0.000 as Float, 0.556 as Float, 1.000 as Float]
+		step3OpacityAnimation.values = [0.000, 1.000, 1.000]
+		step3OpacityAnimation.keyTimes = [0.000, 0.556, 1.000]
 		step3OpacityAnimation.timingFunctions = [linearTiming, linearTiming]
 		step3OpacityAnimation.beginTime = beginTime
 		step3OpacityAnimation.fillMode = fillMode
-		step3OpacityAnimation.removedOnCompletion = removedOnCompletion
-		self.viewsByName["step3"]?.layer.addAnimation(step3OpacityAnimation, forKey:"setpThree_Opacity")
+		step3OpacityAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["step3"]?.layer.add(step3OpacityAnimation, forKey:"setpThree_Opacity")
 
 		let carBlueOpacityAnimation = CAKeyframeAnimation(keyPath: "opacity")
 		carBlueOpacityAnimation.duration = 4.500
-		carBlueOpacityAnimation.values = [1.000 as Float, 1.000 as Float]
-		carBlueOpacityAnimation.keyTimes = [0.000 as Float, 1.000 as Float]
+		carBlueOpacityAnimation.values = [1.000, 1.000]
+		carBlueOpacityAnimation.keyTimes = [0.000, 1.000]
 		carBlueOpacityAnimation.timingFunctions = [linearTiming]
 		carBlueOpacityAnimation.beginTime = beginTime
 		carBlueOpacityAnimation.fillMode = fillMode
-		carBlueOpacityAnimation.removedOnCompletion = removedOnCompletion
-		self.viewsByName["CarBlue"]?.layer.addAnimation(carBlueOpacityAnimation, forKey:"setpThree_Opacity")
+		carBlueOpacityAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["CarBlue"]?.layer.add(carBlueOpacityAnimation, forKey:"setpThree_Opacity")
 	}
 
 	func removeSetpThreeAnimation() {
-		self.layer.removeAnimationForKey("SetpThree")
-		self.viewsByName["step2"]?.layer.removeAnimationForKey("setpThree_Opacity")
-		self.viewsByName["step3"]?.layer.removeAnimationForKey("setpThree_Rotation")
-		self.viewsByName["step3"]?.layer.removeAnimationForKey("setpThree_Opacity")
-		self.viewsByName["CarBlue"]?.layer.removeAnimationForKey("setpThree_Opacity")
+		self.layer.removeAnimation(forKey: "SetpThree")
+		self.viewsByName["step2"]?.layer.removeAnimation(forKey: "setpThree_Opacity")
+		self.viewsByName["step3"]?.layer.removeAnimation(forKey: "setpThree_Rotation")
+		self.viewsByName["step3"]?.layer.removeAnimation(forKey: "setpThree_Opacity")
+		self.viewsByName["CarBlue"]?.layer.removeAnimation(forKey: "setpThree_Opacity")
 	}
 
 	// - MARK: stepFour
@@ -411,87 +410,87 @@ class CarBlueView : UIView {
 		addStepFourAnimationWithBeginTime(0, fillMode: kCAFillModeBoth, removedOnCompletion: false, completion: nil)
 	}
 
-	func addStepFourAnimation(completion: ((Bool) -> Void)?) {
+	func addStepFourAnimation(_ completion: ((Bool) -> Void)?) {
 		addStepFourAnimationWithBeginTime(0, fillMode: kCAFillModeBoth, removedOnCompletion: false, completion: completion)
 	}
 
-	func addStepFourAnimation(removedOnCompletion removedOnCompletion: Bool) {
+	func addStepFourAnimation(removedOnCompletion: Bool) {
 		addStepFourAnimationWithBeginTime(0, fillMode: removedOnCompletion ? kCAFillModeRemoved : kCAFillModeBoth, removedOnCompletion: removedOnCompletion, completion: nil)
 	}
 
-	func addStepFourAnimation(removedOnCompletion removedOnCompletion: Bool, completion: ((Bool) -> Void)?) {
+	func addStepFourAnimation(removedOnCompletion: Bool, completion: ((Bool) -> Void)?) {
 		addStepFourAnimationWithBeginTime(0, fillMode: removedOnCompletion ? kCAFillModeRemoved : kCAFillModeBoth, removedOnCompletion: removedOnCompletion, completion: completion)
 	}
 
-	func addStepFourAnimationWithBeginTime(beginTime: CFTimeInterval, fillMode: String, removedOnCompletion: Bool, completion: ((Bool) -> Void)?) {
+	func addStepFourAnimationWithBeginTime(_ beginTime: CFTimeInterval, fillMode: String, removedOnCompletion: Bool, completion: ((Bool) -> Void)?) {
 		let linearTiming = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
 		if let complete = completion {
 			let representativeAnimation = CABasicAnimation(keyPath: "not.a.real.key")
 			representativeAnimation.duration = 6.000
-			representativeAnimation.delegate = self
-			self.layer.addAnimation(representativeAnimation, forKey: "StepFour")
-			self.animationCompletions[layer.animationForKey("StepFour")] = complete
+			representativeAnimation.delegate = self as? CAAnimationDelegate
+			self.layer.add(representativeAnimation, forKey: "StepFour")
+			self.animationCompletions[layer.animation(forKey: "StepFour")!] = complete
 		}
 
 		let step4RotationAnimation = CAKeyframeAnimation(keyPath: "transform.rotation.z")
 		step4RotationAnimation.duration = 6.000
-		step4RotationAnimation.values = [0.000 as Float, -0.035 as Float, 0.035 as Float, -0.000 as Float, -0.000 as Float]
-		step4RotationAnimation.keyTimes = [0.000 as Float, 0.417 as Float, 0.500 as Float, 0.583 as Float, 1.000 as Float]
+		step4RotationAnimation.values = [0.000, -0.035, 0.035, -0.000, -0.000]
+		step4RotationAnimation.keyTimes = [0.000, 0.417, 0.500, 0.583, 1.000]
 		step4RotationAnimation.timingFunctions = [linearTiming, linearTiming, linearTiming, linearTiming]
 		step4RotationAnimation.beginTime = beginTime
 		step4RotationAnimation.fillMode = fillMode
-		step4RotationAnimation.removedOnCompletion = removedOnCompletion
-		self.viewsByName["step4"]?.layer.addAnimation(step4RotationAnimation, forKey:"stepFour_Rotation")
+		step4RotationAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["step4"]?.layer.add(step4RotationAnimation, forKey:"stepFour_Rotation")
 
 		let step4OpacityAnimation = CAKeyframeAnimation(keyPath: "opacity")
 		step4OpacityAnimation.duration = 6.000
-		step4OpacityAnimation.values = [0.000 as Float, 1.000 as Float, 1.000 as Float]
-		step4OpacityAnimation.keyTimes = [0.000 as Float, 0.250 as Float, 1.000 as Float]
+		step4OpacityAnimation.values = [0.000, 1.000, 1.000]
+		step4OpacityAnimation.keyTimes = [0.000, 0.250, 1.000]
 		step4OpacityAnimation.timingFunctions = [linearTiming, linearTiming]
 		step4OpacityAnimation.beginTime = beginTime
 		step4OpacityAnimation.fillMode = fillMode
-		step4OpacityAnimation.removedOnCompletion = removedOnCompletion
-		self.viewsByName["step4"]?.layer.addAnimation(step4OpacityAnimation, forKey:"stepFour_Opacity")
+		step4OpacityAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["step4"]?.layer.add(step4OpacityAnimation, forKey:"stepFour_Opacity")
 
 		let step3OpacityAnimation = CAKeyframeAnimation(keyPath: "opacity")
 		step3OpacityAnimation.duration = 6.000
-		step3OpacityAnimation.values = [1.000 as Float, 0.000 as Float, 0.000 as Float]
-		step3OpacityAnimation.keyTimes = [0.000 as Float, 0.167 as Float, 1.000 as Float]
+		step3OpacityAnimation.values = [1.000, 0.000, 0.000]
+		step3OpacityAnimation.keyTimes = [0.000, 0.167, 1.000]
 		step3OpacityAnimation.timingFunctions = [linearTiming, linearTiming]
 		step3OpacityAnimation.beginTime = beginTime
 		step3OpacityAnimation.fillMode = fillMode
-		step3OpacityAnimation.removedOnCompletion = removedOnCompletion
-		self.viewsByName["step3"]?.layer.addAnimation(step3OpacityAnimation, forKey:"stepFour_Opacity")
+		step3OpacityAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["step3"]?.layer.add(step3OpacityAnimation, forKey:"stepFour_Opacity")
 
 		let carBlueRotationAnimation = CAKeyframeAnimation(keyPath: "transform.rotation.z")
 		carBlueRotationAnimation.duration = 6.000
-		carBlueRotationAnimation.values = [0.000 as Float, -0.035 as Float, 0.052 as Float, -0.052 as Float, 0.017 as Float, -0.035 as Float, 0.105 as Float, -0.070 as Float, 0.035 as Float, -0.175 as Float, -0.035 as Float, -0.052 as Float, 0.052 as Float, -0.157 as Float, -0.070 as Float, -0.122 as Float, 0.105 as Float, -0.017 as Float, 0.017 as Float, -0.017 as Float, 0.017 as Float]
-		carBlueRotationAnimation.keyTimes = [0.000 as Float, 0.080 as Float, 0.167 as Float, 0.250 as Float, 0.333 as Float, 0.375 as Float, 0.417 as Float, 0.458 as Float, 0.500 as Float, 0.562 as Float, 0.625 as Float, 0.688 as Float, 0.708 as Float, 0.750 as Float, 0.771 as Float, 0.792 as Float, 0.833 as Float, 0.875 as Float, 0.917 as Float, 0.958 as Float, 1.000 as Float]
+		carBlueRotationAnimation.values = [0.000, -0.035, 0.052, -0.052, 0.017, -0.035, 0.105, -0.070, 0.035, -0.175, -0.035, -0.052, 0.052, -0.157, -0.070, -0.122, 0.105, -0.017, 0.017, -0.017, 0.017]
+		carBlueRotationAnimation.keyTimes = [0.000, 0.080, 0.167, 0.250, 0.333, 0.375, 0.417, 0.458, 0.500, 0.562, 0.625, 0.688, 0.708, 0.750, 0.771, 0.792, 0.833, 0.875, 0.917, 0.958, 1.000]
 		carBlueRotationAnimation.timingFunctions = [linearTiming, linearTiming, linearTiming, linearTiming, linearTiming, linearTiming, linearTiming, linearTiming, linearTiming, linearTiming, linearTiming, linearTiming, linearTiming, linearTiming, linearTiming, linearTiming, linearTiming, linearTiming, linearTiming, linearTiming]
 		carBlueRotationAnimation.repeatCount = HUGE
 		carBlueRotationAnimation.beginTime = beginTime
 		carBlueRotationAnimation.fillMode = fillMode
-		carBlueRotationAnimation.removedOnCompletion = removedOnCompletion
-		self.viewsByName["CarBlue"]?.layer.addAnimation(carBlueRotationAnimation, forKey:"stepFour_Rotation")
+		carBlueRotationAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["CarBlue"]?.layer.add(carBlueRotationAnimation, forKey:"stepFour_Rotation")
 
 		let carBlueOpacityAnimation = CAKeyframeAnimation(keyPath: "opacity")
 		carBlueOpacityAnimation.duration = 6.000
-		carBlueOpacityAnimation.values = [1.000 as Float, 1.000 as Float]
-		carBlueOpacityAnimation.keyTimes = [0.000 as Float, 1.000 as Float]
+		carBlueOpacityAnimation.values = [1.000, 1.000]
+		carBlueOpacityAnimation.keyTimes = [0.000, 1.000]
 		carBlueOpacityAnimation.timingFunctions = [linearTiming]
 		carBlueOpacityAnimation.beginTime = beginTime
 		carBlueOpacityAnimation.fillMode = fillMode
-		carBlueOpacityAnimation.removedOnCompletion = removedOnCompletion
-		self.viewsByName["CarBlue"]?.layer.addAnimation(carBlueOpacityAnimation, forKey:"stepFour_Opacity")
+		carBlueOpacityAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["CarBlue"]?.layer.add(carBlueOpacityAnimation, forKey:"stepFour_Opacity")
 	}
 
 	func removeStepFourAnimation() {
-		self.layer.removeAnimationForKey("StepFour")
-		self.viewsByName["step4"]?.layer.removeAnimationForKey("stepFour_Rotation")
-		self.viewsByName["step4"]?.layer.removeAnimationForKey("stepFour_Opacity")
-		self.viewsByName["step3"]?.layer.removeAnimationForKey("stepFour_Opacity")
-		self.viewsByName["CarBlue"]?.layer.removeAnimationForKey("stepFour_Rotation")
-		self.viewsByName["CarBlue"]?.layer.removeAnimationForKey("stepFour_Opacity")
+		self.layer.removeAnimation(forKey: "StepFour")
+		self.viewsByName["step4"]?.layer.removeAnimation(forKey: "stepFour_Rotation")
+		self.viewsByName["step4"]?.layer.removeAnimation(forKey: "stepFour_Opacity")
+		self.viewsByName["step3"]?.layer.removeAnimation(forKey: "stepFour_Opacity")
+		self.viewsByName["CarBlue"]?.layer.removeAnimation(forKey: "stepFour_Rotation")
+		self.viewsByName["CarBlue"]?.layer.removeAnimation(forKey: "stepFour_Opacity")
 	}
 
 	// - MARK: stepOne
@@ -500,119 +499,119 @@ class CarBlueView : UIView {
 		addStepOneAnimationWithBeginTime(0, fillMode: kCAFillModeBoth, removedOnCompletion: false, completion: nil)
 	}
 
-	func addStepOneAnimation(completion: ((Bool) -> Void)?) {
+	func addStepOneAnimation(_ completion: ((Bool) -> Void)?) {
 		addStepOneAnimationWithBeginTime(0, fillMode: kCAFillModeBoth, removedOnCompletion: false, completion: completion)
 	}
 
-	func addStepOneAnimation(removedOnCompletion removedOnCompletion: Bool) {
+	func addStepOneAnimation(removedOnCompletion: Bool) {
 		addStepOneAnimationWithBeginTime(0, fillMode: removedOnCompletion ? kCAFillModeRemoved : kCAFillModeBoth, removedOnCompletion: removedOnCompletion, completion: nil)
 	}
 
-	func addStepOneAnimation(removedOnCompletion removedOnCompletion: Bool, completion: ((Bool) -> Void)?) {
+	func addStepOneAnimation(removedOnCompletion: Bool, completion: ((Bool) -> Void)?) {
 		addStepOneAnimationWithBeginTime(0, fillMode: removedOnCompletion ? kCAFillModeRemoved : kCAFillModeBoth, removedOnCompletion: removedOnCompletion, completion: completion)
 	}
 
-	func addStepOneAnimationWithBeginTime(beginTime: CFTimeInterval, fillMode: String, removedOnCompletion: Bool, completion: ((Bool) -> Void)?) {
+	func addStepOneAnimationWithBeginTime(_ beginTime: CFTimeInterval, fillMode: String, removedOnCompletion: Bool, completion: ((Bool) -> Void)?) {
 		let linearTiming = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
 		if let complete = completion {
 			let representativeAnimation = CABasicAnimation(keyPath: "not.a.real.key")
 			representativeAnimation.duration = 7.250
-			representativeAnimation.delegate = self
-			self.layer.addAnimation(representativeAnimation, forKey: "StepOne")
-			self.animationCompletions[layer.animationForKey("StepOne")] = complete
+			representativeAnimation.delegate = self as? CAAnimationDelegate
+			self.layer.add(representativeAnimation, forKey: "StepOne")
+			self.animationCompletions[layer.animation(forKey: "StepOne")!] = complete
 		}
 
 		let sloganOpacityAnimation = CAKeyframeAnimation(keyPath: "opacity")
 		sloganOpacityAnimation.duration = 7.250
-		sloganOpacityAnimation.values = [0.000 as Float, 1.000 as Float, 0.000 as Float, 0.000 as Float]
-		sloganOpacityAnimation.keyTimes = [0.000 as Float, 0.000 as Float, 0.085 as Float, 1.000 as Float]
+		sloganOpacityAnimation.values = [0.000, 1.000, 0.000, 0.000]
+		sloganOpacityAnimation.keyTimes = [0.000, 0.000, 0.085, 1.000]
 		sloganOpacityAnimation.timingFunctions = [linearTiming, linearTiming, linearTiming]
 		sloganOpacityAnimation.beginTime = beginTime
 		sloganOpacityAnimation.fillMode = fillMode
-		sloganOpacityAnimation.removedOnCompletion = removedOnCompletion
-		self.viewsByName["slogan"]?.layer.addAnimation(sloganOpacityAnimation, forKey:"stepOne_Opacity")
+		sloganOpacityAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["slogan"]?.layer.add(sloganOpacityAnimation, forKey:"stepOne_Opacity")
 
 		let exsplainOpacityAnimation = CAKeyframeAnimation(keyPath: "opacity")
 		exsplainOpacityAnimation.duration = 7.250
-		exsplainOpacityAnimation.values = [0.000 as Float, 1.000 as Float, 0.000 as Float, 0.000 as Float]
-		exsplainOpacityAnimation.keyTimes = [0.000 as Float, 0.000 as Float, 0.086 as Float, 1.000 as Float]
+		exsplainOpacityAnimation.values = [0.000, 1.000, 0.000, 0.000]
+		exsplainOpacityAnimation.keyTimes = [0.000, 0.000, 0.086, 1.000]
 		exsplainOpacityAnimation.timingFunctions = [linearTiming, linearTiming, linearTiming]
 		exsplainOpacityAnimation.beginTime = beginTime
 		exsplainOpacityAnimation.fillMode = fillMode
-		exsplainOpacityAnimation.removedOnCompletion = removedOnCompletion
-		self.viewsByName["exsplain"]?.layer.addAnimation(exsplainOpacityAnimation, forKey:"stepOne_Opacity")
+		exsplainOpacityAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["exsplain"]?.layer.add(exsplainOpacityAnimation, forKey:"stepOne_Opacity")
 
 		let step1RotationAnimation = CAKeyframeAnimation(keyPath: "transform.rotation.z")
 		step1RotationAnimation.duration = 7.250
-		step1RotationAnimation.values = [0.000 as Float, -0.017 as Float, 0.017 as Float, 0.000 as Float, 0.000 as Float]
-		step1RotationAnimation.keyTimes = [0.000 as Float, 0.207 as Float, 0.276 as Float, 0.345 as Float, 1.000 as Float]
+		step1RotationAnimation.values = [0.000, -0.017, 0.017, 0.000, 0.000]
+		step1RotationAnimation.keyTimes = [0.000, 0.207, 0.276, 0.345, 1.000]
 		step1RotationAnimation.timingFunctions = [linearTiming, linearTiming, linearTiming, linearTiming]
 		step1RotationAnimation.beginTime = beginTime
 		step1RotationAnimation.fillMode = fillMode
-		step1RotationAnimation.removedOnCompletion = removedOnCompletion
-		self.viewsByName["step1"]?.layer.addAnimation(step1RotationAnimation, forKey:"stepOne_Rotation")
+		step1RotationAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["step1"]?.layer.add(step1RotationAnimation, forKey:"stepOne_Rotation")
 
 		let step1OpacityAnimation = CAKeyframeAnimation(keyPath: "opacity")
 		step1OpacityAnimation.duration = 7.250
-		step1OpacityAnimation.values = [0.000 as Float, 0.000 as Float, 1.000 as Float, 1.000 as Float]
-		step1OpacityAnimation.keyTimes = [0.000 as Float, 0.138 as Float, 0.207 as Float, 1.000 as Float]
+		step1OpacityAnimation.values = [0.000, 0.000, 1.000, 1.000]
+		step1OpacityAnimation.keyTimes = [0.000, 0.138, 0.207, 1.000]
 		step1OpacityAnimation.timingFunctions = [linearTiming, linearTiming, linearTiming]
 		step1OpacityAnimation.beginTime = beginTime
 		step1OpacityAnimation.fillMode = fillMode
-		step1OpacityAnimation.removedOnCompletion = removedOnCompletion
-		self.viewsByName["step1"]?.layer.addAnimation(step1OpacityAnimation, forKey:"stepOne_Opacity")
+		step1OpacityAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["step1"]?.layer.add(step1OpacityAnimation, forKey:"stepOne_Opacity")
 
 		let carBlueRotationAnimation = CAKeyframeAnimation(keyPath: "transform.rotation.z")
 		carBlueRotationAnimation.duration = 7.250
-		carBlueRotationAnimation.values = [0.000 as Float, -0.017 as Float, 0.017 as Float, -0.035 as Float, 0.052 as Float, -0.035 as Float, 0.035 as Float, -0.000 as Float, 0.035 as Float, -0.000 as Float, -0.024 as Float, 0.031 as Float, -0.023 as Float, -0.017 as Float, 0.017 as Float, -0.000 as Float]
-		carBlueRotationAnimation.keyTimes = [0.000 as Float, 0.138 as Float, 0.276 as Float, 0.397 as Float, 0.483 as Float, 0.569 as Float, 0.621 as Float, 0.655 as Float, 0.690 as Float, 0.724 as Float, 0.793 as Float, 0.845 as Float, 0.897 as Float, 0.914 as Float, 0.966 as Float, 1.000 as Float]
+		carBlueRotationAnimation.values = [0.000, -0.017, 0.017, -0.035, 0.052, -0.035, 0.035, -0.000, 0.035, -0.000, -0.024, 0.031, -0.023, -0.017, 0.017, -0.000]
+		carBlueRotationAnimation.keyTimes = [0.000, 0.138, 0.276, 0.397 , 0.483 , 0.569 , 0.621 , 0.655 , 0.690 , 0.724 , 0.793 , 0.845, 0.897, 0.914, 0.966 , 1.000]
 		carBlueRotationAnimation.timingFunctions = [linearTiming, linearTiming, linearTiming, linearTiming, linearTiming, linearTiming, linearTiming, linearTiming, linearTiming, linearTiming, linearTiming, linearTiming, linearTiming, linearTiming, linearTiming]
 		carBlueRotationAnimation.beginTime = beginTime
 		carBlueRotationAnimation.fillMode = fillMode
-		carBlueRotationAnimation.removedOnCompletion = removedOnCompletion
-		self.viewsByName["CarBlue"]?.layer.addAnimation(carBlueRotationAnimation, forKey:"stepOne_Rotation")
+		carBlueRotationAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["CarBlue"]?.layer.add(carBlueRotationAnimation, forKey:"stepOne_Rotation")
 
 		let carBlueOpacityAnimation = CAKeyframeAnimation(keyPath: "opacity")
 		carBlueOpacityAnimation.duration = 7.250
-		carBlueOpacityAnimation.values = [0.000 as Float, 1.000 as Float, 1.000 as Float]
-		carBlueOpacityAnimation.keyTimes = [0.000 as Float, 0.069 as Float, 1.000 as Float]
+		carBlueOpacityAnimation.values = [0.000, 1.000, 1.000]
+		carBlueOpacityAnimation.keyTimes = [0.000, 0.069, 1.000]
 		carBlueOpacityAnimation.timingFunctions = [linearTiming, linearTiming]
 		carBlueOpacityAnimation.beginTime = beginTime
 		carBlueOpacityAnimation.fillMode = fillMode
-		carBlueOpacityAnimation.removedOnCompletion = removedOnCompletion
-		self.viewsByName["CarBlue"]?.layer.addAnimation(carBlueOpacityAnimation, forKey:"stepOne_Opacity")
+		carBlueOpacityAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["CarBlue"]?.layer.add(carBlueOpacityAnimation, forKey:"stepOne_Opacity")
 
 		let carBlueTranslationXAnimation = CAKeyframeAnimation(keyPath: "transform.translation.x")
 		carBlueTranslationXAnimation.duration = 7.250
-		carBlueTranslationXAnimation.values = [0.000 as Float, -1.000 as Float, 1.000 as Float, 0.000 as Float, 0.000 as Float]
-		carBlueTranslationXAnimation.keyTimes = [0.000 as Float, 0.793 as Float, 0.828 as Float, 0.862 as Float, 1.000 as Float]
+		carBlueTranslationXAnimation.values = [0.000, -1.000, 1.000, 0.000, 0.000]
+		carBlueTranslationXAnimation.keyTimes = [0.000, 0.793, 0.828, 0.862, 1.000]
 		carBlueTranslationXAnimation.timingFunctions = [linearTiming, linearTiming, linearTiming, linearTiming]
 		carBlueTranslationXAnimation.beginTime = beginTime
 		carBlueTranslationXAnimation.fillMode = fillMode
-		carBlueTranslationXAnimation.removedOnCompletion = removedOnCompletion
-		self.viewsByName["CarBlue"]?.layer.addAnimation(carBlueTranslationXAnimation, forKey:"stepOne_TranslationX")
+		carBlueTranslationXAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["CarBlue"]?.layer.add(carBlueTranslationXAnimation, forKey:"stepOne_TranslationX")
 
 		let carBlueTranslationYAnimation = CAKeyframeAnimation(keyPath: "transform.translation.y")
 		carBlueTranslationYAnimation.duration = 7.250
-		carBlueTranslationYAnimation.values = [0.000 as Float, 2.000 as Float, -1.000 as Float, -2.000 as Float, -3.000 as Float, -1.000 as Float, 0.000 as Float, 0.000 as Float]
-		carBlueTranslationYAnimation.keyTimes = [0.000 as Float, 0.759 as Float, 0.793 as Float, 0.828 as Float, 0.845 as Float, 0.879 as Float, 0.948 as Float, 1.000 as Float]
+		carBlueTranslationYAnimation.values = [0.000, 2.000, -1.000, -2.000, -3.000, -1.000, 0.000, 0.000]
+		carBlueTranslationYAnimation.keyTimes = [0.000, 0.759, 0.793, 0.828, 0.845, 0.879, 0.948, 1.000]
 		carBlueTranslationYAnimation.timingFunctions = [linearTiming, linearTiming, linearTiming, linearTiming, linearTiming, linearTiming, linearTiming]
 		carBlueTranslationYAnimation.beginTime = beginTime
 		carBlueTranslationYAnimation.fillMode = fillMode
-		carBlueTranslationYAnimation.removedOnCompletion = removedOnCompletion
-		self.viewsByName["CarBlue"]?.layer.addAnimation(carBlueTranslationYAnimation, forKey:"stepOne_TranslationY")
+		carBlueTranslationYAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["CarBlue"]?.layer.add(carBlueTranslationYAnimation, forKey:"stepOne_TranslationY")
 	}
 
 	func removeStepOneAnimation() {
-		self.layer.removeAnimationForKey("StepOne")
-		self.viewsByName["slogan"]?.layer.removeAnimationForKey("stepOne_Opacity")
-		self.viewsByName["exsplain"]?.layer.removeAnimationForKey("stepOne_Opacity")
-		self.viewsByName["step1"]?.layer.removeAnimationForKey("stepOne_Rotation")
-		self.viewsByName["step1"]?.layer.removeAnimationForKey("stepOne_Opacity")
-		self.viewsByName["CarBlue"]?.layer.removeAnimationForKey("stepOne_Rotation")
-		self.viewsByName["CarBlue"]?.layer.removeAnimationForKey("stepOne_Opacity")
-		self.viewsByName["CarBlue"]?.layer.removeAnimationForKey("stepOne_TranslationX")
-		self.viewsByName["CarBlue"]?.layer.removeAnimationForKey("stepOne_TranslationY")
+		self.layer.removeAnimation(forKey: "StepOne")
+		self.viewsByName["slogan"]?.layer.removeAnimation(forKey: "stepOne_Opacity")
+		self.viewsByName["exsplain"]?.layer.removeAnimation(forKey: "stepOne_Opacity")
+		self.viewsByName["step1"]?.layer.removeAnimation(forKey: "stepOne_Rotation")
+		self.viewsByName["step1"]?.layer.removeAnimation(forKey: "stepOne_Opacity")
+		self.viewsByName["CarBlue"]?.layer.removeAnimation(forKey: "stepOne_Rotation")
+		self.viewsByName["CarBlue"]?.layer.removeAnimation(forKey: "stepOne_Opacity")
+		self.viewsByName["CarBlue"]?.layer.removeAnimation(forKey: "stepOne_TranslationX")
+		self.viewsByName["CarBlue"]?.layer.removeAnimation(forKey: "stepOne_TranslationY")
 	}
 
 	// - MARK: stepTwo
@@ -621,80 +620,80 @@ class CarBlueView : UIView {
 		addStepTwoAnimationWithBeginTime(0, fillMode: kCAFillModeBoth, removedOnCompletion: false, completion: nil)
 	}
 
-	func addStepTwoAnimation(completion: ((Bool) -> Void)?) {
+	func addStepTwoAnimation(_ completion: ((Bool) -> Void)?) {
 		addStepTwoAnimationWithBeginTime(0, fillMode: kCAFillModeBoth, removedOnCompletion: false, completion: completion)
 	}
 
-	func addStepTwoAnimation(removedOnCompletion removedOnCompletion: Bool) {
+	func addStepTwoAnimation(removedOnCompletion: Bool) {
 		addStepTwoAnimationWithBeginTime(0, fillMode: removedOnCompletion ? kCAFillModeRemoved : kCAFillModeBoth, removedOnCompletion: removedOnCompletion, completion: nil)
 	}
 
-	func addStepTwoAnimation(removedOnCompletion removedOnCompletion: Bool, completion: ((Bool) -> Void)?) {
+	func addStepTwoAnimation(removedOnCompletion: Bool, completion: ((Bool) -> Void)?) {
 		addStepTwoAnimationWithBeginTime(0, fillMode: removedOnCompletion ? kCAFillModeRemoved : kCAFillModeBoth, removedOnCompletion: removedOnCompletion, completion: completion)
 	}
 
-	func addStepTwoAnimationWithBeginTime(beginTime: CFTimeInterval, fillMode: String, removedOnCompletion: Bool, completion: ((Bool) -> Void)?) {
+	func addStepTwoAnimationWithBeginTime(_ beginTime: CFTimeInterval, fillMode: String, removedOnCompletion: Bool, completion: ((Bool) -> Void)?) {
 		let linearTiming = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
 		if let complete = completion {
 			let representativeAnimation = CABasicAnimation(keyPath: "not.a.real.key")
 			representativeAnimation.duration = 4.000
-			representativeAnimation.delegate = self
-			self.layer.addAnimation(representativeAnimation, forKey: "StepTwo")
-			self.animationCompletions[layer.animationForKey("StepTwo")] = complete
+			representativeAnimation.delegate = self as? CAAnimationDelegate
+			self.layer.add(representativeAnimation, forKey: "StepTwo")
+			self.animationCompletions[layer.animation(forKey: "StepTwo")!] = complete
 		}
 
 		let step1OpacityAnimation = CAKeyframeAnimation(keyPath: "opacity")
 		step1OpacityAnimation.duration = 4.000
-		step1OpacityAnimation.values = [1.000 as Float, 0.000 as Float, 0.000 as Float]
-		step1OpacityAnimation.keyTimes = [0.000 as Float, 0.125 as Float, 1.000 as Float]
+		step1OpacityAnimation.values = [1.000, 0.000, 0.000]
+		step1OpacityAnimation.keyTimes = [0.000, 0.125, 1.000]
 		step1OpacityAnimation.timingFunctions = [linearTiming, linearTiming]
 		step1OpacityAnimation.beginTime = beginTime
 		step1OpacityAnimation.fillMode = fillMode
-		step1OpacityAnimation.removedOnCompletion = removedOnCompletion
-		self.viewsByName["step1"]?.layer.addAnimation(step1OpacityAnimation, forKey:"stepTwo_Opacity")
+		step1OpacityAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["step1"]?.layer.add(step1OpacityAnimation, forKey:"stepTwo_Opacity")
 
 		let step2RotationAnimation = CAKeyframeAnimation(keyPath: "transform.rotation.z")
 		step2RotationAnimation.duration = 4.000
-		step2RotationAnimation.values = [0.000 as Float, -0.017 as Float, 0.017 as Float, 0.000 as Float]
-		step2RotationAnimation.keyTimes = [0.000 as Float, 0.750 as Float, 0.875 as Float, 1.000 as Float]
+		step2RotationAnimation.values = [0.000, -0.017, 0.017, 0.000]
+		step2RotationAnimation.keyTimes = [0.000, 0.750, 0.875, 1.000]
 		step2RotationAnimation.timingFunctions = [linearTiming, linearTiming, linearTiming]
 		step2RotationAnimation.beginTime = beginTime
 		step2RotationAnimation.fillMode = fillMode
-		step2RotationAnimation.removedOnCompletion = removedOnCompletion
-		self.viewsByName["step2"]?.layer.addAnimation(step2RotationAnimation, forKey:"stepTwo_Rotation")
+		step2RotationAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["step2"]?.layer.add(step2RotationAnimation, forKey:"stepTwo_Rotation")
 
 		let step2OpacityAnimation = CAKeyframeAnimation(keyPath: "opacity")
 		step2OpacityAnimation.duration = 4.000
-		step2OpacityAnimation.values = [0.000 as Float, 0.000 as Float, 1.000 as Float, 1.000 as Float]
-		step2OpacityAnimation.keyTimes = [0.000 as Float, 0.125 as Float, 0.250 as Float, 1.000 as Float]
+		step2OpacityAnimation.values = [0.000, 0.000, 1.000, 1.000]
+		step2OpacityAnimation.keyTimes = [0.000, 0.125, 0.250 , 1.000]
 		step2OpacityAnimation.timingFunctions = [linearTiming, linearTiming, linearTiming]
 		step2OpacityAnimation.beginTime = beginTime
 		step2OpacityAnimation.fillMode = fillMode
-		step2OpacityAnimation.removedOnCompletion = removedOnCompletion
-		self.viewsByName["step2"]?.layer.addAnimation(step2OpacityAnimation, forKey:"stepTwo_Opacity")
+		step2OpacityAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["step2"]?.layer.add(step2OpacityAnimation, forKey:"stepTwo_Opacity")
 
 		let carBlueOpacityAnimation = CAKeyframeAnimation(keyPath: "opacity")
 		carBlueOpacityAnimation.duration = 4.000
-		carBlueOpacityAnimation.values = [1.000 as Float, 1.000 as Float]
-		carBlueOpacityAnimation.keyTimes = [0.000 as Float, 1.000 as Float]
+		carBlueOpacityAnimation.values = [1.000, 1.000]
+		carBlueOpacityAnimation.keyTimes = [0.000, 1.000]
 		carBlueOpacityAnimation.timingFunctions = [linearTiming]
 		carBlueOpacityAnimation.beginTime = beginTime
 		carBlueOpacityAnimation.fillMode = fillMode
-		carBlueOpacityAnimation.removedOnCompletion = removedOnCompletion
-		self.viewsByName["CarBlue"]?.layer.addAnimation(carBlueOpacityAnimation, forKey:"stepTwo_Opacity")
+		carBlueOpacityAnimation.isRemovedOnCompletion = removedOnCompletion
+		self.viewsByName["CarBlue"]?.layer.add(carBlueOpacityAnimation, forKey:"stepTwo_Opacity")
 	}
 
 	func removeStepTwoAnimation() {
-		self.layer.removeAnimationForKey("StepTwo")
-		self.viewsByName["step1"]?.layer.removeAnimationForKey("stepTwo_Opacity")
-		self.viewsByName["step2"]?.layer.removeAnimationForKey("stepTwo_Rotation")
-		self.viewsByName["step2"]?.layer.removeAnimationForKey("stepTwo_Opacity")
-		self.viewsByName["CarBlue"]?.layer.removeAnimationForKey("stepTwo_Opacity")
+		self.layer.removeAnimation(forKey: "StepTwo")
+		self.viewsByName["step1"]?.layer.removeAnimation(forKey: "stepTwo_Opacity")
+		self.viewsByName["step2"]?.layer.removeAnimation(forKey: "stepTwo_Rotation")
+		self.viewsByName["step2"]?.layer.removeAnimation(forKey: "stepTwo_Opacity")
+		self.viewsByName["CarBlue"]?.layer.removeAnimation(forKey: "stepTwo_Opacity")
 	}
 
-	override func animationDidStop(anim: CAAnimation!, finished flag: Bool) {
+     func animationDidStop(_ anim: CAAnimation!, finished flag: Bool) {
 		if let completion = self.animationCompletions[anim] {
-			self.animationCompletions.removeValueForKey(anim)
+			self.animationCompletions.removeValue(forKey: anim)
 			completion(flag)
 		}
 	}
@@ -703,10 +702,10 @@ class CarBlueView : UIView {
 		for subview in viewsByName.values {
 			subview.layer.removeAllAnimations()
 		}
-		self.layer.removeAnimationForKey("SetpThree")
-		self.layer.removeAnimationForKey("StepFour")
-		self.layer.removeAnimationForKey("CarStart")
-		self.layer.removeAnimationForKey("StepOne")
-		self.layer.removeAnimationForKey("StepTwo")
+		self.layer.removeAnimation(forKey: "SetpThree")
+		self.layer.removeAnimation(forKey: "StepFour")
+		self.layer.removeAnimation(forKey: "CarStart")
+		self.layer.removeAnimation(forKey: "StepOne")
+		self.layer.removeAnimation(forKey: "StepTwo")
 	}
 }
